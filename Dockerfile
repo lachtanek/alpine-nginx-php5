@@ -53,6 +53,7 @@ ADD conf/default.conf /etc/nginx/default.d/default.conf
 ADD conf/nginx-supervisor.ini /etc/supervisor/conf.d/nginx-supervisor.ini
 
 RUN rm -rf /var/cache/apk/*
+RUN rm -rf /var/www/*
 
 WORKDIR /app
 COPY conf/zzz-custom.ini /etc/php5/conf.d/
