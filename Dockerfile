@@ -1,5 +1,5 @@
-FROM alpine:3.4
-MAINTAINER Amrit G.C. <music.demand01@gmail.com>
+FROM alpine:3.8
+MAINTAINER Jakub Hrabec <xhrabec@gmail.com>
 
 RUN apk --update add --no-cache --update \
 	nginx \
@@ -28,19 +28,21 @@ RUN apk --update add --no-cache --update \
     ttf-freefont \
     fontconfig \
     dbus \
-    qt5-qtbase-dev; \
-    apk add --no-cache \
-            --update \
-            --repository http://dl-3.alpinelinux.org/alpine/edge/community/ \
-            --allow-untrusted \
-    php5-xdebug; \
-    apk add --no-cache \
-            --update \
-            --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
-            --allow-untrusted \
-    wkhtmltopdf \
-    php5-memcached;
+    qt5-qtbase-dev;
+#    qt5-qtbase-dev; \
+#    apk add --no-cache \
+#            --update \
+#            --repository http://dl-3.alpinelinux.org/alpine/edge/community/ \
+#            --allow-untrusted \
+#    php5-xdebug; \
+#    apk add --no-cache \
+#            --update \
+#            --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ \
+#            --allow-untrusted \
+#    wkhtmltopdf \
+#    php5-memcached;
 
+RUN ln -s /usr/bin/php5 /usr/bin/php
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer; \
     chmod +x /usr/local/bin/composer;
 
