@@ -12,6 +12,7 @@ RUN apk --update add --no-cache --update \
 	php5-json \
 	php5-openssl \
 	php5-mysql \
+	php5-mysqli \
 	php5-pdo_mysql \
 	php5-mcrypt \
 	php5-opcache \
